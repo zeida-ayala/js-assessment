@@ -1,7 +1,5 @@
-exports = typeof window === 'undefined' ? global : window;
+countAnswers = {
+  count: function count(start, end) {
 
-exports.countAnswers = {
-  count: function (start, end) {
-
-  }
+  },
 };

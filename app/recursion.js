@@ -1,19 +1,17 @@
-exports = typeof window === 'undefined' ? global : window;
-
-exports.recursionAnswers = {
-  listFiles: function(data, dirName) {
+recursionAnswers = {
+  listFiles: function listFiles(data, dirName) {
 
   },
 
-  permute: function(arr) {
+  permute: function permute(arr) {
 
   },
 
-  fibonacci: function(n) {
+  fibonacci: function fibonacci(n) {
 
   },
 
-  validParentheses: function(n) {
+  validParentheses: function validParentheses(n) {
 
-  }
+  },
 };

@@ -1,11 +1,9 @@
-exports = typeof window === 'undefined' ? global : window;
-
-exports.asyncAnswers = {
-  async: function(value) {
+asyncAnswers = {
+  async: function async(value) {
 
   },
 
-  manipulateRemoteData: function(url) {
+  manipulateRemoteData: function manipulateRemoteData(url) {
 
-  }
+  },
 };

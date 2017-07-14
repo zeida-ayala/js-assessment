@@ -1,15 +1,13 @@
-exports = typeof window === 'undefined' ? global : window;
-
-exports.objectsAnswers = {
-  alterContext: function(fn, obj) {
+objectsAnswers = {
+  alterContext: function alterContext(fn, obj) {
 
   },
 
-  alterObjects: function(constructor, greeting) {
+  alterObjects: function alterObjects(constructor, greeting) {
 
   },
 
-  iterate: function(obj) {
+  iterate: function iterate(obj) {
 
-  }
+  },
 };

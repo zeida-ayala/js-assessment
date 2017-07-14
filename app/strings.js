@@ -1,15 +1,13 @@
-exports = typeof window === 'undefined' ? global : window;
-
-exports.stringsAnswers = {
-  reduceString: function(str, amount) {
+stringsAnswers = {
+  reduceString: function reduceString(str, amount) {
 
   },
 
-  wordWrap: function(str, cols) {
+  wordWrap: function wordWrap(str, cols) {
 
   },
 
-  reverseString: function(str) {
+  reverseString: function reverseString(str) {
 
-  }
+  },
 };
