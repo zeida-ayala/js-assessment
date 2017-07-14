@@ -1,50 +1,45 @@
-if ( typeof window === 'undefined' ) {
-  require('../../app/strings');
-  var expect = require('chai').expect;
-}
-
-describe('strings', function() {
-  it('you should be able to reduce duplicate characters to a desired minimum', function() {
+describe('strings', () => {
+  it('you should be able to reduce duplicate characters to a desired minimum', () => {
     expect(stringsAnswers.reduceString('aaaabbbb', 2)).to.eql('aabb');
     expect(stringsAnswers.reduceString('xaaabbbb', 2)).to.eql('xaabb');
     expect(stringsAnswers.reduceString('aaaabbbb', 1)).to.eql('ab');
     expect(stringsAnswers.reduceString('aaxxxaabbbb', 2)).to.eql('aaxxaabb');
   });
 
-  it('you should be able to wrap lines at a given number of columns, without breaking words', function() {
-    var wrapCol = 5;
-    var inputStrings = [
+  it('you should be able to wrap lines at a given number of columns, without breaking words', () => {
+    const wrapCol = 5;
+    const inputStrings = [
       'abcdef abcde abc def',
       'abc abc abc',
-      'a b c def'
+      'a b c def',
     ];
-    var outputStrings = [
+    const outputStrings = [
       'abcdef\nabcde\nabc\ndef',
       'abc\nabc\nabc',
-      'a b c\ndef'
+      'a b c\ndef',
     ];
-    var formattedStr;
+    let formattedStr;
 
-    inputStrings.forEach(function(str, index) {
+    inputStrings.forEach((str, index) => {
       formattedStr = stringsAnswers.wordWrap(str, wrapCol);
       expect(formattedStr).to.eql(outputStrings[index]);
     });
   });
 
-  it('you should be able to reverse a string', function() {
-    var inputStrings = [
+  it('you should be able to reverse a string', () => {
+    const inputStrings = [
       'abc',
       'i am a string of characters',
-      'A man, a plan, a canal: Panama'
+      'A man, a plan, a canal: Panama',
     ];
-    var outputStrings = [
+    const outputStrings = [
       'cba',
       'sretcarahc fo gnirts a ma i',
-      'amanaP :lanac a ,nalp a ,nam A'
+      'amanaP :lanac a ,nalp a ,nam A',
     ];
 
-    inputStrings.forEach(function(str, index) {
-      var result = stringsAnswers.reverseString(str);
+    inputStrings.forEach((str, index) => {
+      const result = stringsAnswers.reverseString(str);
       expect(result).to.eql(outputStrings[index]);
     });
   });
