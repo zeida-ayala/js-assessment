@@ -19,8 +19,8 @@ browserSync.init({
   logLevel: 'silent',
 });
 
-const f = fs.readFileSync(`${__dirname}/help.txt`, 'utf8');
-
-/* eslint no-console: 0 */
-console.log(f.replace('{{host}}', host).replace('{{port}}', port));
-console.log('Server running http://%s:%d', host, port);
+fs.readFile(`${__dirname}/help.txt`, 'utf8', (err, data) => {
+  /* eslint no-console: 0 */
+  console.log(data.replace('{{host}}', host).replace('{{port}}', port));
+  console.log('Server running http://%s:%d', host, port);
+});
