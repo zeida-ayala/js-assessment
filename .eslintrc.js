@@ -8,14 +8,12 @@ module.exports = {
     "globals": {
         "expect": true,
         "arraysAnswers": true,
-        "countAnswers": true,
         "flowControlAnswers": true,
         "functionsAnswers": true,
         "logicalOperatorsAnswers": true,
         "recursionAnswers": true,
         "stringsAnswers": true,
         "sinon": true,
-        "_": true,
     },
     "rules": {
         "linebreak-style": 0,
