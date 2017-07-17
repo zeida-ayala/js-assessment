@@ -1,29 +1,33 @@
 describe('recursion', () => {
   const fileData = {
-    dir: 'app',
-    files: [
-      'index.html',
+    dirName: 'app',
+    files: ['index.html'],
+    subDirs: [
       {
-        dir: 'js',
+        dirName: 'js',
         files: [
           'main.js',
           'app.js',
           'misc.js',
+        ],
+        subDirs: [
           {
-            dir: 'vendor',
+            dirName: 'vendor',
             files: [
               'jquery.js',
               'underscore.js',
             ],
+            subDirs: [],
           },
         ],
       },
       {
-        dir: 'css',
+        dirName: 'css',
         files: [
           'reset.css',
           'main.css',
         ],
+        subDirs: [],
       },
     ],
   };
@@ -42,60 +46,9 @@ describe('recursion', () => {
     expect(result.indexOf('main.js') > -1).to.be.ok();
     expect(result.indexOf('underscore.js') > -1).to.be.ok();
   });
-});
-
-describe('permutation', () => {
-  const arr = [1, 2, 3, 4];
-  const answer = [
-    [1, 2, 3, 4],
-    [1, 2, 4, 3],
-    [1, 3, 2, 4],
-    [1, 3, 4, 2],
-    [1, 4, 2, 3],
-    [1, 4, 3, 2],
-    [2, 1, 3, 4],
-    [2, 1, 4, 3],
-    [2, 3, 1, 4],
-    [2, 3, 4, 1],
-    [2, 4, 1, 3],
-    [2, 4, 3, 1],
-    [3, 1, 2, 4],
-    [3, 1, 4, 2],
-    [3, 2, 1, 4],
-    [3, 2, 4, 1],
-    [3, 4, 1, 2],
-    [3, 4, 2, 1],
-    [4, 1, 2, 3],
-    [4, 1, 3, 2],
-    [4, 2, 1, 3],
-    [4, 2, 3, 1],
-    [4, 3, 1, 2],
-    [4, 3, 2, 1],
-  ];
-
-  it('you should be able to return the permutations of an array', () => {
-    const result = recursionAnswers.permute(arr);
-    const resultStrings = _.map(result, r => r.join(''));
-
-    expect(result.length).to.eql(answer.length);
-
-    _.each(answer, (a) => {
-      expect(resultStrings.indexOf(a.join('')) > -1).to.be.ok();
-    });
-  });
 
   it('you should be able to return the nth number in a fibonacci sequence', () => {
     expect(recursionAnswers.fibonacci(2)).to.eql(1);
     expect(recursionAnswers.fibonacci(6)).to.eql(8);
-  });
-
-  it('you should be able to return the set of all valid combinations of n pairs of parentheses.', () => {
-    const expected = ['((()))', '(()())', '(())()', '()(())', '()()()'];
-    const result = recursionAnswers.validParentheses(3);
-
-    expect(result.length).to.eql(5);
-    _.each(expected, (c) => {
-      expect(result).to.contain(c);
-    });
   });
 });

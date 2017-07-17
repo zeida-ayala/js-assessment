@@ -3,9 +3,7 @@
 The repo includes a set of tests that assess your JavaScript skills, based
 on Rebecca Murphey's js-assessment framework.
 
-# For Interviewees
-
-## How do I begin?
+# How do I begin?
 
 1. If you don't have a Github account, [sign up](https://github.com/signup/free)!
 2. Fork this repo to your own Github repo
@@ -18,7 +16,7 @@ on Rebecca Murphey's js-assessment framework.
 Note: You may receive notifications that your repo has been followed or forked by a PROS employee.
 These actions are simply part of the review process.
 
-## I want to work on the tests; what do I do?
+# I want to work on the tests; what do I do?
 
 To use the tests, you will need to install Node -- you can do this via the
 [download page](http://nodejs.org/#download)

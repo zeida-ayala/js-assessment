@@ -6,26 +6,6 @@ describe('strings', () => {
     expect(stringsAnswers.reduceString('aaxxxaabbbb', 2)).to.eql('aaxxaabb');
   });
 
-  it('you should be able to wrap lines at a given number of columns, without breaking words', () => {
-    const wrapCol = 5;
-    const inputStrings = [
-      'abcdef abcde abc def',
-      'abc abc abc',
-      'a b c def',
-    ];
-    const outputStrings = [
-      'abcdef\nabcde\nabc\ndef',
-      'abc\nabc\nabc',
-      'a b c\ndef',
-    ];
-    let formattedStr;
-
-    inputStrings.forEach((str, index) => {
-      formattedStr = stringsAnswers.wordWrap(str, wrapCol);
-      expect(formattedStr).to.eql(outputStrings[index]);
-    });
-  });
-
   it('you should be able to reverse a string', () => {
     const inputStrings = [
       'abc',
