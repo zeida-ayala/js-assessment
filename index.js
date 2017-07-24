@@ -7,18 +7,20 @@ const host = process.env.HOST || '127.0.0.1';
 browserSync.init({
   server: {
     baseDir: __dirname,
-    index: 'tests/runner.html'
+    index: 'tests/runner.html',
   },
   files: ['app/**/*.js'],
-  host: host,
-  port: port,
+  host,
+  port,
   open: false,
   notify: false,
   ui: false,
   ghostMode: false,
-  logLevel: 'silent'
+  logLevel: 'silent',
 });
 
-f = fs.readFileSync(__dirname + '/help.txt', 'utf8');
-console.log(f.replace('{{host}}', host).replace('{{port}}', port));
-console.log('Server running http://%s:%d', host, port);
+fs.readFile(`${__dirname}/help.txt`, 'utf8', (err, data) => {
+  /* eslint no-console: 0 */
+  console.log(data.replace('{{host}}', host).replace('{{port}}', port));
+  console.log('Server running http://%s:%d', host, port);
+});
