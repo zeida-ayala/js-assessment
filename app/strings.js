@@ -16,7 +16,7 @@ stringsAnswers = {
   /**
    * Reverses a string of text
    * 
-   * Example: reverseString('abc') should be 'bca'
+   * Example: reverseString('abc') should be 'cba'
    * 
    * @param {String} str - a string of text to be reversed
    * @returns {String} The original string of text str reversed.
