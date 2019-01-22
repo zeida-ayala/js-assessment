@@ -1,7 +1,7 @@
 # PROS UI Software Engineer Pre-Interview Questions
 
 The repo includes a set of tests that assess your JavaScript skills, based
-on Rebecca Murphey's js-assessment framework.
+on Rebecca Murphey's js-assessment framework, and a project to demonstrate practical React skills.
 
 # How do I begin?
 
@@ -11,7 +11,8 @@ on Rebecca Murphey's js-assessment framework.
 4. Implement the functions in each of the scripts located in the `app/` dir
 5. Test your results as described below
 6. Commit your changes to your personal Github repo (No need to submit a pull request)
-7. Email us the link to your repo so that we can review your results
+7. Complete the project described below
+8. Email us the link to your repo so that we can review your results
 
 Note: You may receive notifications that your repo has been followed or forked by a PROS employee.
 These actions are simply part of the review process.
@@ -38,6 +39,17 @@ get the tests to pass. To do this, you'll need to refer to the tests in the
 files in the `tests/app` directory, and edit the files in the `app/` directory.
 Once you update a test, you can reload the test page in the browser to see
 whether it worked.
+
+# I want to complete the project; what do I do?
+
+1. Create a React App with the following two inputs. Using a boilerplate like create-react-app is fine.
+    1. A multiline text input that will accept a list of names, one per line.
+    2. A dropdown that allows the user to select one of several languages.
+2. Generate name tags for each name in the text input with a greeting in the language corresponding to the language chosen in the dropdown.
+3. Make the source available as a cloneable repo, for example, on Github, and provide the link below. Be sure to include instructions on how to run the application in the README. 
+
+## Completed project link
+Find my project source code [here]() (update this to link to your completed project).
 
 # License
 
