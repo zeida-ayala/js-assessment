@@ -15,9 +15,9 @@ describe('async behavior', () => {
       finish(done);
     });
 
-    asyncAnswers.async('success').then((result) => {
+    asyncAnswers.async("success").then((result) => {
       flag = result;
-      expect(flag).to.eql('success');
+      expect(flag).to.eql("success");
       finish(done);
     });
 

@@ -17,10 +17,21 @@ recursionAnswers = {
    * @returns {Number[]} The files under the directory dirName, including subdiretories.
    */
   listFiles: function listFiles(data, dirName) {
-
+    const getFilesSubDirs = directory => (accum, current) => {
+      let aux = accum;
+      aux = accum.concat(listFiles(current, directory));
+      return aux;
+    };
+    if (!dirName) {
+      return data.subDirs.reduce(getFilesSubDirs(dirName), data.files);
+    } else if (dirName === data.dirName) {
+      return data.subDirs.reduce(getFilesSubDirs(undefined), data.files);
+    }
+    return data.subDirs.reduce(getFilesSubDirs(dirName), []);
   },
 
   /**
+   *
    * Determines the fibonacci number at position n.
    * https://en.wikipedia.org/wiki/Fibonacci_number
    * 
@@ -30,6 +41,6 @@ recursionAnswers = {
    * @returns {Number} The nth fibonacci number
    */
   fibonacci: function fibonacci(n) {
-
+    return n > 2 ? fibonacci(n - 1) + fibonacci(n - 2) : 1;
   },
 };

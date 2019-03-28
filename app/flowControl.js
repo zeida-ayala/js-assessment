@@ -12,6 +12,19 @@ flowControlAnswers = {
    * @returns {String} The string 'fizz', 'buzz', or 'fizzbuzz'
    */
   fizzBuzz: function fizzBuzz(num) {
-
+    let res = '';
+    const isDivisible = (n, divisible) => n % divisible === 0;
+    if (!Number.isInteger(num)) {
+      res = false;
+    } else if (isDivisible(num, 5) && isDivisible(num, 3)) {
+      res = 'fizzbuzz';
+    } else if (isDivisible(num, 3)) {
+      res = 'fizz';
+    } else if (isDivisible(num, 5)) {
+      res = 'buzz';
+    } else {
+      res = num;
+    }
+    return res;
   },
 };
