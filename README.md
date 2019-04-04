@@ -49,7 +49,7 @@ whether it worked.
 3. Make the source available as a cloneable repo, for example, on Github, and provide the link below. Be sure to include instructions on how to run the application in the README. 
 
 ## Completed project link
-Find my project source code [here](https://github.com/zeida-ayala/greetings.git) (it was not completed).
+Find my project source code [here](https://github.com/zeida-ayala/greetings.git) (Completed).
 
 # License
 
