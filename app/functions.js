@@ -27,7 +27,7 @@ functionsAnswers = {
    * that begins with str + ', ' + that 1 argument.
    */
   functionFunction: function functionFunction(str) {
-    const strConcat = (str) => (str2) => '${str}, ${str2}';
+    const strConcat = str2 => str + ', ' + str2 ;
     return strConcat;
   },
 };

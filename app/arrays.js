@@ -10,13 +10,14 @@ arraysAnswers = {
     // Implement a function, that returns the 0 based index of an element in an array.
     // console.log(arr.indexOf(item));
     // return arr.indexOf(item); 
-    let indexItem = -1;
-    arr.forEach((node, index) => {
+    const getIndex = (accum, node, index) => {
+      let res = accum;
       if (node === item) {
-        indexItem = index;
+        res = index;
       }
-    });
-    return indexItem;
+      return res;
+    };
+    return arr.reduce(getIndex, -1);
   },
 
   /**
@@ -43,24 +44,25 @@ arraysAnswers = {
   },
 
   /**
-   * Create a new array with the same items as arr, excluding item 
+   * Create an array with the same items as arr, excluding item 
    * 
    * @param {Number[]} arr - An array of numbers
    * @param {Number} item - A number to be excluded from thearray
    * @returns {Number[]} The array arr containing all numbers from arr except item.
    */
   removeWithoutCopy: function removeWithoutCopy(arr, item) {
-    const arrResult = arr;
-    const getIndexOfItem = value => (accum, elem, index) => {
-      if (value === elem) {
+    const removeItem = (elem, index) => {
+      arr.splice(elem - index, 1);
+    };    
+    const filterToRemove = (accum, value, index) => {
+      if (item === value) {
         accum.push(index);
       }
       return accum;
     };
-    const deleteItem = (v, i) => arrResult.splice(v - i, 1);
-    const arrayIndexes = arr.reduce(getIndexOfItem(item), []);
-    arrayIndexes.map(deleteItem);
-    return arrResult;
+    const indexesToRemove = arr.reduce(filterToRemove, []);
+    indexesToRemove.map(removeItem);
+    return arr;
   },
   /**
    * Adds a number, item, to the end of an array, arr.
@@ -83,8 +85,8 @@ arraysAnswers = {
    */
   truncate: function truncate(arr) {
     // arr.pop();
-    const arrWithoutLast = arr.slice(0, arr.length - 1);
-    return arrWithoutLast;
+    arr.splice(-1, 1);
+    return arr;
   },
 
   /**
@@ -95,14 +97,12 @@ arraysAnswers = {
    * @returns {Number[]} The array arr, with the first element item added
    */
   prepend: function prepend(arr, item) {
-    let aux = item;
-    const arrayAdded = arr;
-    arr.forEach((value, index) => {
-      arrayAdded[index] = aux;
-      aux = value;
-    });
-    arrayAdded[arr.length] = aux;
-    return arrayAdded;
+    const addItem = (accum, value, index) => {
+      arr[index] = accum;
+      return value;
+    };
+    arr[arr.length] = arr.reduce(addItem, item);
+    return arr;
   },
 
   /**
@@ -112,14 +112,14 @@ arraysAnswers = {
    * @returns {Number[]} The array arr, with the first element item removed.
    */
   curtail: function curtail(arr) {
-    const arrayAdded = arr;
-    arr.forEach((value, index) => {
+    const removeItem = (accum, value, index) => {
       if (index > 0) {
-        arrayAdded[index - 1] = value;
+        arr[index - 1] = value;
       }
-    });
-    arrayAdded.splice(-1, 1);
-    return arrayAdded;
+    };
+    arr.reduce(removeItem);
+    arr.splice(-1, 1);
+    return arr;
   },
 
   /**
