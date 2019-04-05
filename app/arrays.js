@@ -8,16 +8,18 @@ arraysAnswers = {
    */
   indexOf: function indexOf(arr, item) {
     // Implement a function, that returns the 0 based index of an element in an array.
-    // console.log(arr.indexOf(item));
-    // return arr.indexOf(item); 
-    const getIndex = (accum, node, index) => {
+
+    // this is my own implementation for getting index
+    /* const getIndex = (accum, node, index) => {
       let res = accum;
       if (node === item) {
         res = index;
       }
       return res;
     };
-    return arr.reduce(getIndex, -1);
+    return arr.reduce(getIndex, -1); */
+
+    return arr.indexOf(item); 
   },
 
   /**
@@ -72,9 +74,13 @@ arraysAnswers = {
    * @returns {Number[]} The array arr, with item appended.
    */
   append: function append(arr, item) {
-    const arrayAdded = arr;
+    // this is my own implementation   
+    /* const arrayAdded = arr;
     arrayAdded[arr.length] = item;
-    return arrayAdded;
+    return arrayAdded; 
+    */
+    arr.push(item);
+    return arr;
   },
 
   /**
@@ -83,9 +89,9 @@ arraysAnswers = {
    * @param {Number[]} arr - An array of numbers
    * @returns {Number[]} The array arr, with the last element removed..
    */
-  truncate: function truncate(arr) {
-    // arr.pop();
-    arr.splice(-1, 1);
+  truncate: function truncate(arr) {   
+    // arr.splice(-1, 1);
+    arr.pop();
     return arr;
   },
 
@@ -97,11 +103,15 @@ arraysAnswers = {
    * @returns {Number[]} The array arr, with the first element item added
    */
   prepend: function prepend(arr, item) {
-    const addItem = (accum, value, index) => {
+    // this is my own implementation
+    /* const addItem = (accum, value, index) => {
       arr[index] = accum;
       return value;
     };
     arr[arr.length] = arr.reduce(addItem, item);
+    return arr; */
+
+    arr.unshift(item);
     return arr;
   },
 
@@ -112,13 +122,17 @@ arraysAnswers = {
    * @returns {Number[]} The array arr, with the first element item removed.
    */
   curtail: function curtail(arr) {
-    const removeItem = (accum, value, index) => {
+    // this is my own implementation
+    /* const removeItem = (accum, value, index) => {
       if (index > 0) {
         arr[index - 1] = value;
       }
     };
     arr.reduce(removeItem);
     arr.splice(-1, 1);
+    return arr; */
+
+    arr.shift();
     return arr;
   },
 
@@ -130,16 +144,18 @@ arraysAnswers = {
    * @returns {Number[]} A new array, with elements from arr1 and arr2 in that order.
    */
   concat: function concat(arr1, arr2) {
-    //return [...arr1, ...arr2];
-    const arrResult = [];
+    // this is my own implementation
+    /* const arrResult = [];
     const add = (value, index) => {
       arrResult[index] = value;
     };
     arr1.forEach(add);
     arr2.forEach((value) => {
       add(value, arrResult.length);
-    });
-    return arrResult;
+    }); 
+    return arrResult; */
+
+    return [...arr1, ...arr2];
   },
   /**
    * Insert a number item into an array arr at the 0 based position index.
@@ -149,8 +165,9 @@ arraysAnswers = {
    * @param {Number} index - A 0 based index into the array arr.
    * @returns {Number[]} The array arr, with the number item inserted at position index.
    */
-  insert: function insert(arr, item, index) {
-    let aux;
+  insert: function insert(arr, item, index) {    
+    // this is my own implementation
+    /* let aux;
     const arrResult = arr;
     arr.forEach((value, currentIndex) => {
       if (currentIndex >= index) {
@@ -159,7 +176,9 @@ arraysAnswers = {
       }
     });
     arrResult[arr.length] = aux;
-    return arrResult;
+    return arrResult; */
+    arr.splice(index, 0, item);
+    return arr;
   },
 
   /**

@@ -21,7 +21,7 @@ asyncAnswers = {
    * You may use jquery, XMLHttpRequest, or fetch.
    * https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
    * https://api.jquery.com/jQuery.ajax/
-   * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API   * 
+   * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API 
    * 
    * @param {String} url - a valid url
    * @returns {then: function} A promise like object containing a then property.
@@ -30,11 +30,10 @@ asyncAnswers = {
     const onError = error => Promise.reject(new Error(error));
     const status = (response) => {
       if (response.ok) {
-        return Promise.resolve(response);
+        return Promise.resolve(response.json());
       }
       return onError(response.statusText);
     };
-    const json = response => Promise.resolve(response.json());
     const transformData = (accum, current) => {
       accum.push(current.name);
       return accum;
@@ -42,7 +41,6 @@ asyncAnswers = {
     const onSuccess = data => Promise.resolve(data.people.reduce(transformData, []).sort());
     return fetch(url)
       .then(status)
-      .then(json)
       .then(onSuccess)
       .catch(onError);
   },
